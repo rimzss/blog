@@ -1,7 +1,19 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
 import { BiSearch } from "react-icons/bi";
 
 const Nav = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <nav className="flex flex-col items-center py-8">
       <div className="w-5/6 flex justify-around items-center">
@@ -61,12 +73,12 @@ const Nav = () => {
             fill="#141624"
           />
         </svg>
-        <ul className="flex w-1/3 justify-around text-hoyr font-light">
+        <ul className="md:flex w-1/3 justify-around text-hoyr font-light hidden">
           <li>Home</li>
           <li>Blog</li>
           <li>Contact</li>
         </ul>
-        <div className="flex">
+        <div className="md:flex hidden">
           <input
             placeholder="Seacrh"
             className="p-2 bg-hoyr100 text rounded-md"
@@ -75,6 +87,33 @@ const Nav = () => {
             id=""
           />
           <BiSearch className="-ml-10 scale-125 mt-3" />
+        </div>
+        <div className="block md:hidden">
+          <Button
+            className="text-secondary500"
+            id="fade-button"
+            aria-controls={open ? "fade-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}
+          >
+            Menu
+          </Button>
+          <Menu
+            id="fade-menu"
+            MenuListProps={{
+              "aria-labelledby": "fade-button",
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+          >
+            <MenuItem onClick={handleClose}>Home</MenuItem>
+            <MenuItem onClick={handleClose}>Blog</MenuItem>
+            <MenuItem onClick={handleClose}>Contact</MenuItem>
+            <MenuItem onClick={handleClose}>Search</MenuItem>
+          </Menu>
         </div>
       </div>
     </nav>

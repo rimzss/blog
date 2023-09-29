@@ -8,30 +8,29 @@ const Post = () => {
     const res = await fetch("https://dev.to/api/articles/?per_page=9");
     const data = await res.json();
     setBlogs(data);
-    console.log(data);
   };
   const defaultImage =
-    "https://res.cloudinary.com/practicaldev/image/fetch/s--qFXT0XtS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5hj12o96eaiw96jjrbmw.jpg";
+    "https://res.cloudinary.com/practicaldev/image/fetch/s--yH1__SZq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_775/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ytshyt5ieabbodlgx2gr.png";
   useEffect(() => {
     fetchData();
   }, []);
   return (
-    <article className="grid grid-cols-3 gap-5">
+    <article className="md:grid grid-cols-3 gap-5">
       {blogs.map((blog) => {
         return (
           <>
             <Link href="../">
-              <div className="p-3 border-2 rounded-lg h-96 flex flex-col justify-between">
+              <div className="p-3 border-[1px] rounded-lg h-full flex flex-col justify-between mb-5 md:mb-0">
                 <div>
                   <img
-                    className="rounded-md "
+                    className="rounded-md md:w-54 md:h-52 object-cover"
                     src={blog.cover_image ? blog.cover_image : defaultImage}
                     alt={blog.title}
                   />
-                  <div className="bg-[#4b6bfb0d] rounded-md p-1 text-[#4B6BFB] w-14 my-3 font-light text-sm text-center">
+                  <div className="bg-[#4b6bfb0d] rounded-md p-1 text-[#4B6BFB] w-14 my-3 text-sm text-center">
                     {blog.type_of}
                   </div>
-                  <h1 className="text-2xl">{blog.title}</h1>
+                  <h1 className="text-xl">{blog.title}</h1>
                 </div>
 
                 <div className="flex items-center text-hoyr400 text-sm gap-4">
