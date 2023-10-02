@@ -13,7 +13,6 @@ export default function Home() {
         <Recent />
         <Articles />
       </main>
-      <Footer />
     </>
   );
 }

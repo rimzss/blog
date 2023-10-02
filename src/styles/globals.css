@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.blog-content p {
+  margin-top: 20px;
+  color: #3b3c4a;
+  line-height: 32px;
+}
+.blog-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #181a2a;
+  margin: 30px 0px 25px 0;
+}

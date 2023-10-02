@@ -19,6 +19,7 @@ module.exports = {
         hoyr100: "#F4F4F5",
         hoyr400: "#97989F",
         secondary50: "#F6F6F7",
+        secondary600: "#3B3C4A",
         secondary500: "#696A75",
         secondary800: "#181A2A",
       },
