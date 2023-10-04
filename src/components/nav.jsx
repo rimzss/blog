@@ -83,8 +83,9 @@ const Nav = () => {
           <Link href="/blogs/">
             <li>Blog</li>
           </Link>
-
-          <li>Contact</li>
+          <Link href="/contact/">
+            <li>Contact</li>
+          </Link>
         </ul>
         <div className="md:flex hidden">
           <input

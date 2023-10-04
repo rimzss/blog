@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "./loader";
 
 const Recent = () => {
   const [blogs, setBlogs] = useState([]);
@@ -19,7 +20,7 @@ const Recent = () => {
   return (
     <section className="mt-24 w-5/6 overflow-hidden">
       <h2 className="text-2xl font-medium mb-9">Recent blog post</h2>
-      {!isLoading && (
+      {!isLoading ? (
         <>
           <div className="xl:grid grid-cols-2 grid-rows-2 gap-6 flex flex-col">
             <Link
@@ -94,6 +95,10 @@ const Recent = () => {
               <p className="text-hoyr400 font-light">{blogs[3].description}</p>
             </div>
           </Link>
+        </>
+      ) : (
+        <>
+          <Loader />
         </>
       )}
 
