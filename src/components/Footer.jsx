@@ -3,6 +3,7 @@ import { BiLogoFacebookCircle } from "react-icons/bi";
 import { BiLogoTwitter } from "react-icons/bi";
 import { BiLogoInstagram } from "react-icons/bi";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -30,16 +31,22 @@ const Footer = () => {
             </h4>
           </div>
           <ul className="md:w-1/3 md:text-center my-5 md:my-0">
-            <li>Home</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            <Link href="../">
+              <li>Home</li>
+            </Link>
+            <Link href="/blogs/">
+              <li>Blog</li>
+            </Link>
+            <Link href="/contact/">
+              <li>Contact</li>
+            </Link>
           </ul>
-          <div className="flex gap-4 md:w-1/3 text-2xl">
+          <nav className="flex gap-4 md:w-1/3 text-2xl">
             <BiLogoFacebookCircle />
             <BiLogoTwitter />
             <BiLogoInstagram />
             <BiLogoLinkedinSquare />
-          </div>
+          </nav>
         </div>
         <div className="flex justify-between w-5/6 py-4">
           <svg

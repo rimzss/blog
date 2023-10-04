@@ -16,8 +16,8 @@ const Nav = () => {
     setAnchorEl(null);
   };
   return (
-    <nav className="flex flex-col items-center py-8">
-      <div className="w-5/6 flex md:justify-around justify-between items-center">
+    <header className="flex flex-col items-center py-8 border-b-[1px]">
+      <nav className="w-5/6 flex md:justify-around justify-between items-center">
         <Link href="../">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,13 +78,13 @@ const Nav = () => {
         </Link>
         <ul className="md:flex w-1/3 gap-10 justify-center text-hoyr font-light hidden">
           <Link href="../">
-            <li>Home</li>
+            <li className="hover:font-medium">Home</li>
           </Link>
           <Link href="/blogs/">
-            <li>Blog</li>
+            <li className="hover:font-medium">Blog</li>
           </Link>
           <Link href="/contact/">
-            <li>Contact</li>
+            <li className="hover:font-medium">Contact</li>
           </Link>
         </ul>
         <div className="md:flex hidden">
@@ -118,14 +118,20 @@ const Nav = () => {
             onClose={handleClose}
             TransitionComponent={Fade}
           >
-            <MenuItem onClick={handleClose}>Home</MenuItem>
-            <MenuItem onClick={handleClose}>Blog</MenuItem>
-            <MenuItem onClick={handleClose}>Contact</MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="../">Home</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="/blogs/">Blog</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="/contact/">Contact</Link>
+            </MenuItem>
             <MenuItem onClick={handleClose}>Search</MenuItem>
           </Menu>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

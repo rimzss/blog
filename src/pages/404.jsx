@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const ErrorPage = () => {
   return (
-    <main className="w-1/2 flex mx-auto h-[800px] items-center">
-      <div className="w-1/2 h-56 flex justify-center items-center text-6xl border-r-[1px] mr-9">
+    <main className="md:w-1/2 flex md:flex-row flex-col justify-center mx-auto mt-10 items-center">
+      <div className="w-1/2 h-56 flex justify-center items-center text-6xl md:border-r-[1px] md:mr-9">
         <h1>404</h1>
       </div>
       <div className="w-1/2">

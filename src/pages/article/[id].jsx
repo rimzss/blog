@@ -25,20 +25,20 @@ const BlogDetail = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <article className="flex flex-col items-center">
       {!isLoading && (
         <div className="md:w-1/2 w-5/6 py-5 mt-24">
           <h1 className="text-secondary800 text-2xl font-bold">
             {detail.title}
           </h1>
-          <div className="flex gap-8 text-secondary500 items-center my-8">
+          <figure className="flex gap-8 text-secondary500 items-center my-8">
             <Avatar src={detail.user.profile_image} />
             <h2>{detail.user.name}</h2>
             <h3 className="font-thin">
               {/* {dateFormatter(detail.published_at)} */}
               {moment(detail.published_at).format("ll")}
             </h3>
-          </div>
+          </figure>
           <img
             className="rounded-lg"
             src={detail.cover_image ? detail.cover_image : defaultImage}
@@ -50,7 +50,7 @@ const BlogDetail = () => {
           ></div>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

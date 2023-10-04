@@ -18,7 +18,7 @@ const Recent = () => {
   const defaultImage =
     "https://res.cloudinary.com/practicaldev/image/fetch/s--yH1__SZq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_775/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ytshyt5ieabbodlgx2gr.png";
   return (
-    <section className="mt-24 w-5/6 overflow-hidden">
+    <section className="mt-24  w-5/6 overflow-hidden">
       <h2 className="text-2xl font-medium mb-9">Recent blog post</h2>
       {!isLoading ? (
         <>
@@ -29,7 +29,9 @@ const Recent = () => {
             >
               <img
                 className="w-full"
-                src={blogs[0].cover_image ? blogs[0].cover_image : defaultImage}
+                src={
+                  blogs[0].social_image ? blogs[0].social_image : defaultImage
+                }
                 alt=""
               />
               <p className="text-hoyr400 my-5">
@@ -44,7 +46,9 @@ const Recent = () => {
             >
               <img
                 className="sm:w-1/2 object-cover"
-                src={blogs[1].cover_image ? blogs[1].cover_image : defaultImage}
+                src={
+                  blogs[1].social_image ? blogs[1].social_image : defaultImage
+                }
                 alt=""
               />
               <div>
@@ -64,7 +68,9 @@ const Recent = () => {
             >
               <img
                 className="sm:w-1/2 object-cover"
-                src={blogs[2].cover_image ? blogs[2].cover_image : defaultImage}
+                src={
+                  blogs[2].social_image ? blogs[2].social_image : defaultImage
+                }
                 alt=""
               />
               <div>
@@ -84,7 +90,7 @@ const Recent = () => {
           >
             <img
               className="sm:w-1/2 object-cover"
-              src={blogs[3].cover_image ? blogs[3].cover_image : defaultImage}
+              src={blogs[3].social_image ? blogs[3].social_image : defaultImage}
               alt=""
             />
             <div>
@@ -109,7 +115,7 @@ const Recent = () => {
               <div className="mb-5 md:mb-0">
                 <img
                   className="mb-10"
-                  src={blog.cover_image ? blog.cover_image : defaultImage}
+                  src={blog.social_image ? blog.cover_image : defaultImage}
                   alt={blog.title}
                 />
                 <span className="text-hoyr400">
