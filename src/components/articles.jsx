@@ -1,28 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Post from "./Post";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
-const Articles = () => {
-  const [postNumber, setPostNumber] = useState(9);
+import Post from "./Post";
 
-  let [blogs, setBlogs] = useState([]);
-  const fetchData = async () => {
-    try {
-      const res = await fetch(
-        `https://dev.to/api/articles/?per_page=${postNumber}`
-      );
-      const data = await res.json();
-      setBlogs(data);
-      console.log("Data downloaded");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, [postNumber]);
-
+const Articles = ({ setPostNumber, postNumber, blogs }) => {
   return (
     <div className="mt-24 w-5/6">
       <h2 className="text-2xl font-medium">All Blog Post</h2>
@@ -30,6 +12,7 @@ const Articles = () => {
         <Post blogs={blogs} />
         <div className="w-5/6 flex justify-center mt-10 mx-auto">
           <Button
+            className="text-secondary500 border-secondary500"
             onClick={() => setPostNumber(postNumber + 3)}
             variant="outlined"
           >

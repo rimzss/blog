@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 import { BiSearch } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
-const Nav = () => {
+import Search from "./Search";
+const Nav = ({ resultBlogs, setResultBlogs }) => {
+  // PHONE MENU FUNCTIONS
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <header className="flex flex-col items-center py-8 border-b-[1px]">
       <nav className="w-5/6 flex md:justify-around justify-between items-center">
@@ -87,16 +92,7 @@ const Nav = () => {
             <li className="hover:font-medium">Contact</li>
           </Link>
         </ul>
-        <div className="md:flex hidden">
-          <input
-            placeholder="Seacrh"
-            className="p-2 bg-hoyr100 text rounded-md"
-            type="text"
-            name=""
-            id=""
-          />
-          <BiSearch className="-ml-10 scale-125 mt-3" />
-        </div>
+        <Search resultBlogs={resultBlogs} setResultBlogs={setResultBlogs} />
         <div className="block md:hidden">
           <Button
             className="text-secondary500 text-xl"

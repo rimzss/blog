@@ -3,10 +3,14 @@ import Footer from "@/components/Footer";
 import Articles from "@/components/Articles";
 import React from "react";
 
-const blogPage = () => {
+const blogPage = ({ setPostNumber, postNumber, blogs }) => {
   return (
     <main className="flex flex-col items-center">
-      <Articles />
+      <Articles
+        postNumber={postNumber}
+        setPostNumber={setPostNumber}
+        blogs={blogs}
+      />
     </main>
   );
 };

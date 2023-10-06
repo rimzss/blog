@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Avatar from "@mui/material/Avatar";
 import dateFormatter from "@/utils/dateFormatter";
 import moment from "moment";
+import Loader from "@/components/loader";
 
 const BlogDetail = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ const BlogDetail = () => {
 
   return (
     <article className="flex flex-col items-center">
-      {!isLoading && (
+      {!isLoading ? (
         <div className="md:w-1/2 w-5/6 py-5 mt-24">
           <h1 className="text-secondary800 text-2xl font-bold">
             {detail.title}
@@ -49,6 +50,10 @@ const BlogDetail = () => {
             dangerouslySetInnerHTML={{ __html: detail.body_html }}
           ></div>
         </div>
+      ) : (
+        <>
+          <Loader />
+        </>
       )}
     </article>
   );
