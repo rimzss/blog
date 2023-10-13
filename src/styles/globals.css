@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .blog-content p {
   margin-top: 20px;
   color: #3b3c4a;
