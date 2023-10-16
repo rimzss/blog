@@ -22,8 +22,8 @@ const Result = ({ resultBlogs }) => {
                         }
                         alt={blog.title}
                       />
-                      <div className="bg-[#4b6bfb0d] rounded-md p-1 text-[#4B6BFB] w-14 my-3 text-sm text-center">
-                        {blog.type_of}
+                      <div className="bg-[#4b6bfb0d] rounded-md p-1 text-[#4B6BFB] inline-block my-3 text-sm text-center">
+                        {blog.tag_list[0]}
                       </div>
                       <Tooltip title={blog.title} placement="top-end" arrow>
                         <h1 className="text-xl truncate">{blog.title}</h1>

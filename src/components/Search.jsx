@@ -33,11 +33,28 @@ const Search = ({ resultBlogs, setResultBlogs }) => {
         let title = blog.title.toLowerCase();
         let searchTitle = searchValue.toLowerCase();
         let description = blog.description.toLowerCase();
+        let tag = blog.tag_list;
+        // OPTION 1
         if (title.includes(searchTitle)) {
           resultBlogs.push(blog);
           setResultBlogs(resultBlogs);
           router.push("/result");
-        } else if (description.includes(searchTitle)) {
+        } else {
+          router.push("/result");
+          setResultBlogs(resultBlogs);
+        }
+
+        // OPTION 2
+        if (description.includes(searchTitle) && !resultBlogs.includes(blog)) {
+          resultBlogs.push(blog);
+          setResultBlogs(resultBlogs);
+          router.push("/result");
+        } else {
+          router.push("/result");
+          setResultBlogs(resultBlogs);
+        }
+        // OPTION 3
+        if (tag.includes(searchTitle) && !resultBlogs.includes(blog)) {
           resultBlogs.push(blog);
           setResultBlogs(resultBlogs);
           router.push("/result");

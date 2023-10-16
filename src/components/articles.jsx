@@ -5,7 +5,7 @@ import { motion, useScroll } from "framer-motion";
 
 import Post from "./Post";
 
-const Articles = ({ setPostNumber, postNumber, blogs }) => {
+const Articles = ({ postNumber, setPostNumber, blogs }) => {
   const { scrollYProgress } = useScroll({
     offset: ["50vh", "80vh"],
   });
@@ -13,10 +13,10 @@ const Articles = ({ setPostNumber, postNumber, blogs }) => {
     <div className="mt-24 w-5/6">
       <h2 className="text-2xl font-medium">All Blog Post</h2>
       <motion.div
-        style={{ opacity: scrollYProgress }}
-        initial={{ y: 300 }}
+        initial={{ y: 300, opacity: 0 }}
         whileInView={{
           y: 0,
+          opacity: 1,
           transition: { duration: 0.8 },
         }}
         className="mt-8"
