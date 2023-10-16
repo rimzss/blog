@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { revalidatePath } from "next/cache";
 import Avatar from "@mui/material/Avatar";
-import dateFormatter from "@/utils/dateFormatter";
+
 import moment from "moment";
-import Loader from "@/components/loader";
+import dateFormatter from "@/utils/dateFormatter";
 
 const BlogDetail = ({ detail }) => {
-  let [isLoading, setIsLoading] = useState(true);
-
   const defaultImage =
     "https://res.cloudinary.com/practicaldev/image/fetch/s--yH1__SZq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_775/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ytshyt5ieabbodlgx2gr.png";
 
@@ -36,6 +35,7 @@ const BlogDetail = ({ detail }) => {
     </article>
   );
 };
+
 export async function getStaticProps(context) {
   const { id } = context.params;
   const res = await fetch(`https://dev.to/api/articles/${id}`);
@@ -45,16 +45,23 @@ export async function getStaticProps(context) {
       detail,
     },
   };
+  revalidate: 10;
 }
 export async function getStaticPaths() {
   const res = await fetch("https://dev.to/api/articles?per_page=9");
   const articles = await res.json();
-
+  const recentRes = await fetch(
+    "https://dev.to/api/articles/latest?per_page=4"
+  );
+  const recentArticles = await recentRes.json();
   const ids = articles.map((article) => article.id);
+  const recentIds = recentArticles.map((article) => article.id);
+  ids.concat(recentIds);
   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
+
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

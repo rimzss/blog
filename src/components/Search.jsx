@@ -76,7 +76,7 @@ const Search = ({ resultBlogs, setResultBlogs }) => {
   };
 
   return (
-    <div className="md:flex hidden">
+    <div className="flex mx-2 relative">
       <input
         placeholder="Seacrh"
         className="p-2 bg-hoyr100 text rounded-md"
@@ -89,7 +89,7 @@ const Search = ({ resultBlogs, setResultBlogs }) => {
       />
       <BiSearch
         onClick={search}
-        className="-ml-10 scale-125 mt-3 cursor-pointer"
+        className=" absolute right-3 scale-125 mt-3 cursor-pointer"
       />
     </div>
   );

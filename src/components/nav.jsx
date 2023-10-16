@@ -12,7 +12,6 @@ const Nav = ({ resultBlogs, setResultBlogs }) => {
   // PHONE MENU FUNCTIONS
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -92,7 +91,10 @@ const Nav = ({ resultBlogs, setResultBlogs }) => {
             <li className="hover:font-medium">Contact</li>
           </Link>
         </ul>
-        <Search resultBlogs={resultBlogs} setResultBlogs={setResultBlogs} />
+        <div className="hidden md:flex">
+          <Search resultBlogs={resultBlogs} setResultBlogs={setResultBlogs} />
+        </div>
+
         <div className="block md:hidden">
           <Button
             className="text-secondary500 text-xl"
@@ -113,6 +115,7 @@ const Nav = ({ resultBlogs, setResultBlogs }) => {
             open={open}
             onClose={handleClose}
             TransitionComponent={Fade}
+            className=" w-92"
           >
             <MenuItem onClick={handleClose}>
               <Link href="../">Home</Link>
@@ -123,7 +126,7 @@ const Nav = ({ resultBlogs, setResultBlogs }) => {
             <MenuItem onClick={handleClose}>
               <Link href="/contact/">Contact</Link>
             </MenuItem>
-            <MenuItem onClick={handleClose}>Search</MenuItem>
+            <Search resultBlogs={resultBlogs} setResultBlogs={setResultBlogs} />
           </Menu>
         </div>
       </nav>
