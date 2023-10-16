@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";
 
-import Recent from "@/components/Recent";
-import Articles from "@/components/Articles";
+import Recent from "../components/Recent";
+import Articles from "../components/Articles";
 
 const inter = Inter({ subsets: ["latin"] });
 

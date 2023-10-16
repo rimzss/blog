@@ -1,6 +1,4 @@
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Articles from "@/components/Articles";
+import Articles from "../components/Articles";
 import React from "react";
 
 const blogPage = ({ blogs }) => {
