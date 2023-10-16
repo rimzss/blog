@@ -31,7 +31,7 @@ const Recent = () => {
           >
             <div className="xl:grid grid-cols-2 grid-rows-2 gap-6 flex flex-col">
               <Link
-                className="row-span-2 hover:scale-105 transition-all"
+                className="row-span-2 bg-secondary50 hover:scale-105 p-2  rounded-md transition-all"
                 href={"/article/" + blogs[0].id}
               >
                 <img
@@ -50,7 +50,7 @@ const Recent = () => {
                 </p>
               </Link>
               <Link
-                className="sm:flex gap-5 hover:scale-105 transition-all"
+                className="sm:flex gap-5 bg-secondary50 hover:scale-105 p-2  rounded-md transition-all"
                 href={"/article/" + blogs[1].id}
               >
                 <img
@@ -72,7 +72,7 @@ const Recent = () => {
               </Link>
 
               <Link
-                className="sm:flex gap-5 hover:scale-105 transition-all"
+                className="sm:flex gap-5 bg-secondary50 hover:scale-105 p-2  rounded-md transition-all"
                 href={"/article/" + blogs[2].id}
               >
                 <img
@@ -94,7 +94,7 @@ const Recent = () => {
               </Link>
             </div>
             <Link
-              className="sm:flex gap-5 xl:mt-32 mt-6 hover:scale-105 transition-all"
+              className="flex flex-col sm:flex-row gap-5 xl:mt-10 mt-6 bg-secondary50 hover:scale-105 p-2  rounded-md transition-all"
               href={"/article/" + blogs[3].id}
             >
               <img
@@ -121,27 +121,6 @@ const Recent = () => {
           <Loader />
         </>
       )}
-
-      {/* <Link href="../">
-        <div className="md:grid grid-cols-2 gap-4">
-          {blogs.map((blog) => {
-            return (
-              <div className="mb-5 md:mb-0">
-                <img
-                  className="mb-10"
-                  src={blog.social_image ? blog.cover_image : defaultImage}
-                  alt={blog.title}
-                />
-                <span className="text-hoyr400">
-                  {blog.readable_publish_date}, 2023
-                </span>
-                <h1 className="my-4">{blog.title}</h1>
-                <p className="text-hoyr400">{blog.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </Link> */}
     </section>
   );
 };

@@ -46,7 +46,7 @@ const Footer = () => {
           <BiLogoLinkedinSquare />
         </nav>
       </div>
-      <div className="flex justify-between w-5/6 py-4">
+      <div className="flex md:flex-row flex-col justify-between w-5/6 py-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="158"

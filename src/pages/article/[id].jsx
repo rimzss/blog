@@ -44,8 +44,8 @@ export async function getStaticProps(context) {
     props: {
       detail,
     },
+    revalidate: 10,
   };
-  revalidate: 10;
 }
 export async function getStaticPaths() {
   const res = await fetch("https://dev.to/api/articles?per_page=9");

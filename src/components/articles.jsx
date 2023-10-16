@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { motion, useScroll } from "framer-motion";
 import Post from "./Post";
 
-const Articles = ({ postNumber, setPostNumber, blogs }) => {
+const Articles = ({ blogs, router, page }) => {
   return (
     <div className="mt-24 w-5/6">
       <h2 className="text-2xl font-medium">All Blog Post</h2>
@@ -22,6 +22,10 @@ const Articles = ({ postNumber, setPostNumber, blogs }) => {
           <Button
             className="text-secondary500 border-secondary500"
             variant="outlined"
+            onClick={() => {
+              console.log("LOAD MORE CLICKER");
+              router.push(page + 3);
+            }}
           >
             Load More
           </Button>
